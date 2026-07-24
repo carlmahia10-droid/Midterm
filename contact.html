@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order & Contact - Ley's Sweet Treats</title>
+    <link rel="stylesheet" href="Midterm.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">🍰 Ley's Sweet Treats</div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="Midterm.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Products</a></li>
+                <li><a href="contact.html" class="active">Order/Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contact-page-container">
+        
+        <section class="contact-form-card">
+            <h2 class="form-title">Custom Order Inquiries</h2>
+            
+            <form action="#" method="POST" class="bakery-form">
+                
+                <div class="input-field-group">
+                    <label for="fullName">Your Name:</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Jane Doe" required>
+                </div>
+
+                <div class="contact-method-container">
+                    <span class="method-title">What are we baking for?</span>
+                    <div class="radio-options-row">
+                        <label class="radio-label">
+                            <input type="radio" name="orderType" value="Daily Pickup" checked> 
+                            <span>Daily Pickup</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="orderType" value="Event Catering"> 
+                            <span>Event Catering</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="orderType" value="Custom Request" id="type-custom"> 
+                            <span>Custom / Dietary Request</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="bakery-menu-selection">
+                    <span class="selection-title">Select Your Treats</span>
+                    
+                    <div class="menu-selection-row">
+                        <div class="item-meta">
+                            <img src="L3.jpg" alt="Crinkles" class="thumb-img">
+                            <div class="text-details">
+                                <h4>Crinkles</h4>
+                                <span class="item-unit-price">₱30</span>
+                            </div>
+                        </div>
+                        <div class="counter-box">
+                            <button type="button" class="qty-btn minus" onclick="updateQty('crinkles-qty', -1)">-</button>
+                            <input type="number" id="crinkles-qty" name="qty_crinkles" value="0" min="0" readonly>
+                            <button type="button" class="qty-btn plus" onclick="updateQty('crinkles-qty', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-selection-row">
+                        <div class="item-meta">
+                            <img src="L2.jpg" alt="Cream Cheese Cookies" class="thumb-img">
+                            <div class="text-details">
+                                <h4>Cream Cheese Cookies</h4>
+                                <span class="item-unit-price">₱280</span>
+                            </div>
+                        </div>
+                        <div class="counter-box">
+                            <button type="button" class="qty-btn minus" onclick="updateQty('cookies-qty', -1)">-</button>
+                            <input type="number" id="cookies-qty" name="qty_cookies" value="0" min="0" readonly>
+                            <button type="button" class="qty-btn plus" onclick="updateQty('cookies-qty', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-selection-row">
+                        <div class="item-meta">
+                            <img src="L4.jpg" alt="One Layer Custom Cake" class="thumb-img">
+                            <div class="text-details">
+                                <h4>One Layer Custom Cake</h4>
+                                <span class="item-unit-price">₱900</span>
+                            </div>
+                        </div>
+                        <div class="counter-box">
+                            <button type="button" class="qty-btn minus" onclick="updateQty('cake1-qty', -1)">-</button>
+                            <input type="number" id="cake1-qty" name="qty_cake1" value="0" min="0" readonly>
+                            <button type="button" class="qty-btn plus" onclick="updateQty('cake1-qty', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-selection-row">
+                        <div class="item-meta">
+                            <img src="L5.jpg" alt="Two Layer Custom Cake" class="thumb-img">
+                            <div class="text-details">
+                                <h4>Two Layer Custom Cake</h4>
+                                <span class="item-unit-price">₱1500</span>
+                            </div>
+                        </div>
+                        <div class="counter-box">
+                            <button type="button" class="qty-btn minus" onclick="updateQty('cake2-qty', -1)">-</button>
+                            <input type="number" id="cake2-qty" name="qty_cake2" value="0" min="0" readonly>
+                            <button type="button" class="qty-btn plus" onclick="updateQty('cake2-qty', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="total-summary-row">
+                        <span>Estimated Total:</span>
+                        <strong id="estimated-total">₱0</strong>
+                    </div>
+                </div>
+
+                <div class="cake-customization-group" id="cakeOptions">
+                    <div class="input-field-group">
+                        <label for="cakeFlavor">Choose Cake Flavor:</label>
+                        <select id="cakeFlavor" name="cakeFlavor">
+                            <option value="none">-- Select a Flavor --</option>
+                            <option value="chocolate">Chocolate</option>
+                            <option value="ube">Ube</option>
+                            <option value="vanilla">Vanilla</option>
+                            <option value="mix">Custom Mix</option>
+                            <option value="others">Others</option>
+                        </select>
+                    </div>
+                    <div class="input-field-group">
+                        <label for="cakeIcing">Choose Icing style:</label>
+                        <select id="cakeIcing" name="cakeIcing">
+                            <option value="none">-- Select Icing Preference --</option>
+                            <option value="whipped-cream">Velvety Whipped Cream</option>
+                            <option value="buttercream">Classic Buttercream</option>
+                            <option value="Fondant">Fondant</option>
+                            <option value="no-icing">Others</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-field-group">
+                    <label for="message">Describe your dream treats:</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Let us know your favorite flavors, dietary restrictions, or pickup dates..." required></textarea>
+                </div>
+
+                <button type="submit" class="send-request-btn">Screen Shot ur Order and Send it to our Facebook Page</button>
+            </form>
+        </section>
+
+        <aside class="contact-info-card">
+            <h2>Visit or Reach Us</h2>
+            
+            <div class="info-block">
+                <h3>📍 Address</h3>
+                <p>Prk1 Bancal,<br>Guagua, Pampanga, Philippines</p>
+            </div>
+
+            <div class="info-block">
+                <h3>🕒 Business/Contact Hours</h3>
+                <p>Monday - Saturday: 9:00 AM - 5:00 PM<br>Sunday: 11:00 AM - 4:00 PM</p>
+            </div>
+
+            <div class="info-block">
+                <h3>📞 Phone</h3>
+                <p>(+63) 908-4049-182</p>
+            </div>
+
+            <div class="info-block">
+                <h3>✉️ Email</h3>
+                <p class="email-link">LeysSweetCakes@gmail.com</p>
+            </div>
+            
+            <div class="info-block">
+                <h3>🕒 Process Time </h3>
+                <p>1-2 Days</p>
+            </div>
+
+            <div class="social-button-group">
+                <a href="https://www.facebook.com/profile.php?id=61591947929282" target="_blank" class="social-badge btn-fb">Facebook</a>
+                <a href="https://www.instagram.com/arleenmahia/" target="_blank" class="social-badge btn-ig">Instagram</a>
+            </div>
+        </aside>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>Ley's Sweet Treats is your ultimate destination for premium, fresh-baked daily goods, custom birthday cakes, and delightful sweet pastries crafted with love.</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="Midterm.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>                   
+                    <li><a href="services.html">Products</a></li>
+                    <li><a href="contact.html">Order/Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="howtoorder.html">How to Order</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+                    <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ley's Sweet Treats. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <script>
+    function updateQty(inputId, change) {
+        const qtyInput = document.getElementById(inputId);
+        let currentVal = parseInt(qtyInput.value) || 0;
+        currentVal += change;
+        if (currentVal < 0) currentVal = 0;
+        qtyInput.value = currentVal;
+        calculateTotal();
+    }
+
+    function calculateTotal() {
+        const pricingMatrix = {
+            'crinkles-qty': 30,
+            'cookies-qty': 280,
+            'cake1-qty': 900,
+            'cake2-qty': 1500
+        };
+        let combinedTotal = 0;
+        for (const [id, price] of Object.entries(pricingMatrix)) {
+            const itemQuantity = parseInt(document.getElementById(id).value) || 0;
+            combinedTotal += itemQuantity * price;
+        }
+        document.getElementById('estimated-total').innerText = '₱' + combinedTotal.toLocaleString();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('product') === 'cake') {
+            const typeCustomRadio = document.getElementById('type-custom');
+            if(typeCustomRadio) typeCustomRadio.checked = true;
+            
+            updateQty('cake1-qty', 1); 
+            const cakeFlavorSelect = document.getElementById('cakeFlavor');
+            if(cakeFlavorSelect) cakeFlavorSelect.focus();
+        }
+    });
+    </script>
+
+</body>
+</html>
